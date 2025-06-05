@@ -1,0 +1,375 @@
+[
+  {
+    "id": "product-001",
+    "title": "Printed Blue Hoodie",
+    "badge": "New",
+    "images": {
+      "main": "https://static.zara.net/assets/public/522e/22b3/cef9474b942a/c2cac04e3bbd/04087406400-e1/04087406400-e1.jpg?ts=1733819688051&w=750",
+      "thumbnails": [
+        "https://static.zara.net/assets/public/522e/22b3/cef9474b942a/c2cac04e3bbd/04087406400-e1/04087406400-e1.jpg?ts=1733819688051&w=750",
+        "https://static.zara.net/assets/public/edcf/7af0/e0394fa1bed9/cd15a9a5f16b/04087406400-p/04087406400-p.jpg?ts=1733918891708&w=1024",
+        "https://static.zara.net/assets/public/7523/d7ce/25a94bb6b55c/bb2a1fe6e59d/04087406400-a1/04087406400-a1.jpg?ts=1733918892582&w=1126",
+        "https://static.zara.net/assets/public/9e21/c2f4/8b6b4c748b71/f83405642764/04087406400-a2/04087406400-a2.jpg?ts=1733918891978&w=750"
+      ]
+    },
+    "price": {
+      "current": 89.99,
+      "original": 120.00
+    },
+    "description": "Our premium Printed Blue Hoodie combines urban style with ultimate comfort. Featuring a unique graphic print, this hoodie is crafted from heavyweight cotton blend fabric for a cozy feel. The relaxed fit and kangaroo pocket make it perfect for everyday wear.",
+    "meta": {
+      "category": "Streetwear",
+      "material": "80% Cotton, 20% Polyester",
+      "sku": "GEN-HD-BL-001"
+    },
+    "options": {
+      "colors": [
+        {
+          "name": "blue",
+          "hex": "#2f3c7e"
+        },
+        {
+          "name": "black",
+          "hex": "#000000"
+        },
+        {
+          "name": "gray",
+          "hex": "#555555"
+        }
+      ],
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"]
+    },
+    "quantity": {
+      "min": 1,
+      "max": 10
+    },
+    "tabs": {
+      "details": "Fabric: Premium heavyweight cotton blend (80% cotton, 20% polyester) for durability and comfort.\nFit: Relaxed fit with dropped shoulders for a modern silhouette.\nFeatures: Adjustable drawstring hood, kangaroo pocket, ribbed cuffs and hem.\nPrint: Screen-printed graphic on front, designed to last through multiple washes.\nCare: Machine wash cold, tumble dry low. Do not bleach.",
+      "shipping": "Standard Shipping: 3-5 business days - $5.99 (Free on orders over $100)\nExpress Shipping: 2-3 business days - $12.99\nInternational Shipping: Available to most countries - rates calculated at checkout\nAll orders are processed within 1-2 business days. You will receive a tracking number once your order ships.",
+      "returns": "We offer free returns within 30 days of purchase. Items must be unworn, unwashed, and in original condition with all tags attached.\nTo initiate a return, please contact our customer service team with your order number. You will receive a prepaid return label via email.\nRefunds will be processed within 3-5 business days after we receive your return."
+    }
+  },
+  {
+    "id": "product-002",
+    "title": "Relaxed Fit Hoodie",
+    "badge": null,
+    "images": {
+      "main": "https://static.zara.net/assets/public/a0f7/1947/23114cd3a2b4/9c4a41c30b04/04087420700-e1/04087420700-e1.jpg?ts=1739457883923&w=750",
+      "thumbnails": [
+        "https://static.zara.net/assets/public/a0f7/1947/23114cd3a2b4/9c4a41c30b04/04087420700-e1/04087420700-e1.jpg?ts=1739457883923&w=750",
+        "https://static.zara.net/assets/public/91bb/9c9f/4c2b4fac8e10/d584d9898e65/04087420700-p/04087420700-p.jpg?ts=1739523807165&w=1024",
+        "https://static.zara.net/assets/public/6fc8/0349/42fe468881fd/cb7a3131f0e8/04087420700-a1/04087420700-a1.jpg?ts=1739523805306&w=1126",
+        "https://static.zara.net/assets/public/907b/1c4b/c89d41b181d4/1a66cbf837ea/04087420700-a5/04087420700-a5.jpg?ts=1739523807614&w=750"
+      ]
+    },
+    "price": {
+      "current": 79.99,
+      "original": null
+    },
+    "description": "Experience ultimate comfort with our Relaxed Fit Hoodie. Designed with a loose silhouette and crafted from a soft cotton blend, this hoodie is perfect for both lounging and active wear.",
+    "meta": {
+      "category": "Athleisure",
+      "material": "80% Cotton, 20% Polyester",
+      "sku": "ATH-HD-GR-002"
+    },
+    "options": {
+      "colors": [
+        {
+          "name": "grey",
+          "hex": "#808080"
+        },
+        {
+          "name": "navy",
+          "hex": "#000080"
+        }
+      ],
+      "sizes": ["S", "M", "L", "XL"]
+    },
+    "quantity": {
+      "min": 1,
+      "max": 10
+    },
+    "tabs": {
+      "details": "Fabric: Soft cotton blend for everyday comfort.\nFit: Relaxed fit with adjustable drawstring hood.\nFeatures: Front pouch pocket, ribbed cuffs and hem.\nCare: Machine wash cold, tumble dry low.",
+      "shipping": "Standard Shipping: 3-5 business days - $5.99\nExpress Shipping: 2-3 business days - $12.99\nFree shipping on orders over $100.",
+      "returns": "Free returns within 30 days of purchase. Items must be in original condition with tags attached."
+    }
+  },
+  {
+    "id": "product-003",
+    "title": "Essential Black",
+    "badge": "Bestseller",
+    "images": {
+      "main": "https://static.zara.net/assets/public/b72d/c90d/a96144fa9b7e/fe45c70309e2/01501320807-e1/01501320807-e1.jpg?ts=1739440840900&w=750",
+      "thumbnails": [
+        "https://static.zara.net/assets/public/b72d/c90d/a96144fa9b7e/fe45c70309e2/01501320807-e1/01501320807-e1.jpg?ts=1739440840900&w=750",
+        "https://static.zara.net/assets/public/c055/b254/75a4436e9881/f76636532a84/01501320807-p/01501320807-p.jpg?ts=1739446766178&w=1024",
+        "https://static.zara.net/assets/public/21b9/bad1/03f446c0b3d2/65ee47a8be93/01501320807-a1/01501320807-a1.jpg?ts=1739446760742&w=1126",
+        "https://static.zara.net/assets/public/d0b6/f531/9a054b0cbb20/c57bb56a5f45/01501320807-a5/01501320807-a5.jpg?ts=1739446767239&w=750"
+
+      ]
+    },
+    "price": {
+      "current": 69.99,
+      "original": null
+    },
+    "description": "The Essential Black Hoodie is a wardrobe staple, offering versatility and style. Made from premium cotton, it features a classic design suitable for any occasion.",
+    "meta": {
+      "category": "Streetwear",
+      "material": "100% Cotton",
+      "sku": "STR-HD-BK-003"
+    },
+    "options": {
+      "colors": [
+        {
+          "name": "black",
+          "hex": "#000000"
+        },
+        {
+          "name": "charcoal",
+          "hex": "#36454F"
+        }
+      ],
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"]
+    },
+    "quantity": {
+      "min": 1,
+      "max": 10
+    },
+    "tabs": {
+      "details": "Fabric: 100% premium cotton for breathability.\nFit: Standard fit with adjustable hood.\nFeatures: Kangaroo pocket, ribbed cuffs and hem.\nCare: Machine wash cold, do not bleach.",
+      "shipping": "Standard Shipping: 3-5 business days - $5.99\nExpress Shipping: 2-3 business days - $12.99\nFree shipping on orders over $100.",
+      "returns": "Free returns within 30 days. Items must be unworn and in original condition."
+    }
+  },
+  {
+    "id": "product-004",
+    "title": "Graphic Print",
+    "badge": null,
+    "images": {
+      "main": "https://static.zara.net/assets/public/b9ad/7509/9ecf411e9998/01e79f32be15/04087430800-e1/04087430800-e1.jpg?ts=1738231168509&w=750",
+      "thumbnails": [
+        "https://static.zara.net/assets/public/b9ad/7509/9ecf411e9998/01e79f32be15/04087430800-e1/04087430800-e1.jpg?ts=1738231168509&w=750",
+        "https://static.zara.net/assets/public/cbce/d19d/2a4041c88db2/877fea37b067/04087430800-p/04087430800-p.jpg?ts=1738927662887&w=1024",
+        "https://static.zara.net/assets/public/982c/c7e5/3e9448fc8c36/b6d32821abe7/04087430800-a1/04087430800-a1.jpg?ts=1738927662213&w=1126",
+        "https://static.zara.net/assets/public/b2d2/00cc/e06f48c8a9d4/d65edad25e8f/04087430800-a5/04087430800-a5.jpg?ts=1739179602035&w=750"
+      ]
+    },
+    "price": {
+      "current": 95.00,
+      "original": 110.00
+    },
+    "description": "Make a statement with our Graphic Print Hoodie. Featuring bold designs and a comfortable fit, it's perfect for those looking to stand out.",
+    "meta": {
+      "category": "Streetwear",
+      "material": "85% Cotton, 15% Polyester",
+      "sku": "STR-HD-GP-004"
+    },
+    "options": {
+      "colors": [
+        {
+          "name": "white",
+          "hex": "#FFFFFF"
+        },
+        {
+          "name": "black",
+          "hex": "#000000"
+        }
+      ],
+      "sizes": ["S", "M", "L", "XL"]
+    },
+    "quantity": {
+      "min": 1,
+      "max": 10
+    },
+    "tabs": {
+      "details": "Fabric: Cotton-polyester blend for durability.\nFit: Regular fit with graphic print on front and back.\nFeatures: Drawstring hood, front pocket.\nCare: Machine wash cold, tumble dry low.",
+      "shipping": "Standard Shipping: 3-5 business days - $5.99\nExpress Shipping: 2-3 business days - $12.99\nFree shipping on orders over $100.",
+      "returns": "Returns accepted within 30 days. Items must be in original condition."
+    }
+  },
+
+  {
+    "id": "product-005",
+    "title": "Oversized White Hoodie",
+    "badge": "New",
+    "images": {
+      "main": "https://static.zara.net/assets/public/bbb0/4df9/d9b44c5d8345/32796d90cdbc/01437412251-e1/01437412251-e1.jpg?ts=1739802881337&w=750",
+      "thumbnails": [
+        "https://static.zara.net/assets/public/bbb0/4df9/d9b44c5d8345/32796d90cdbc/01437412251-e1/01437412251-e1.jpg?ts=1739802881337&w=750",
+        "https://static.zara.net/assets/public/f8af/feee/91bc45f69935/407980814307/01437412251-p/01437412251-p.jpg?ts=1739958075736&w=1024",
+        "https://static.zara.net/assets/public/c9d9/ceb8/f2e640e99e16/f46d5a86523c/01437412251-a1/01437412251-a1.jpg?ts=1739958073462&w=1126",
+        "https://static.zara.net/assets/public/582b/afbd/2dce44fab21d/5fe1a3cc29ff/01437412251-a5/01437412251-a5.jpg?ts=1739958075189&w=750"
+      ]
+    },
+    "price": {
+      "current": 85.00,
+      "original": null
+    },
+    "description": "Embrace comfort with our Oversized White Hoodie. Crafted for a relaxed, roomy fit, this hoodie pairs perfectly with casual looks or lounge days.",
+    "meta": {
+      "category": "Casual",
+      "material": "70% Cotton, 30% Polyester",
+      "sku": "CAS-HD-WH-005"
+    },
+    "options": {
+      "colors": [
+        {
+          "name": "white",
+          "hex": "#FFFFFF"
+        }
+      ],
+      "sizes": ["M", "L", "XL", "XXL"]
+    },
+    "quantity": {
+      "min": 1,
+      "max": 10
+    },
+    "tabs": {
+      "details": "Fabric: Soft cotton-polyester blend.\nFit: Oversized fit for max comfort.\nFeatures: Large kangaroo pocket, drawstring hood.\nCare: Machine wash cold, gentle cycle.",
+      "shipping": "Standard: 3-5 days - $5.99\nExpress: 2-3 days - $12.99\nFree shipping on orders over $100.",
+      "returns": "30-day free returns if unworn and in original condition."
+    }
+  },
+  {
+    "id": "product-006",
+    "title": "Zip-Up Lightweight Hoodie",
+    "badge": null,
+    "images": {
+      "main": "https://static.zara.net/assets/public/82c2/3f8d/40c6439baedf/bbb975b80d77/00962425807-e1/00962425807-e1.jpg?ts=1736847186194&w=750",
+      "thumbnails": [
+        "https://static.zara.net/assets/public/82c2/3f8d/40c6439baedf/bbb975b80d77/00962425807-e1/00962425807-e1.jpg?ts=1736847186194&w=750",
+        "https://static.zara.net/assets/public/6f52/1545/d3bf4a72825c/970ebb62a813/00962425807-p/00962425807-p.jpg?ts=1736869425399&w=1024",
+        "https://static.zara.net/assets/public/1da9/88a7/64f5411b9d5b/562362d2a1ce/00962425807-a1/00962425807-a1.jpg?ts=1736869427135&w=1126",
+        "https://static.zara.net/assets/public/95e9/3f46/55694596a588/d80a5b7528a1/00962425807-000-a5/00962425807-000-a5.jpg?ts=1745405403080&w=750"
+
+      ]
+    },
+    "price": {
+      "current": 74.99,
+      "original": 90.00
+    },
+    "description": "Stay cool and comfy with this Zip-Up Lightweight Hoodie. Ideal for layering and outdoor activities, it combines style and function effortlessly.",
+    "meta": {
+      "category": "Athleisure",
+      "material": "65% Cotton, 35% Polyester",
+      "sku": "ATH-HD-ZP-006"
+    },
+    "options": {
+      "colors": [
+        {
+          "name": "navy",
+          "hex": "#001F54"
+        },
+        {
+          "name": "heather grey",
+          "hex": "#B0B0B0"
+        }
+      ],
+      "sizes": ["S", "M", "L", "XL"]
+    },
+    "quantity": {
+      "min": 1,
+      "max": 10
+    },
+    "tabs": {
+      "details": "Fabric: Lightweight cotton-poly blend.\nFit: Slim fit with full zip closure.\nFeatures: Side pockets, adjustable hood.\nCare: Machine wash cold.",
+      "shipping": "Standard: 3-5 business days - $5.99\nExpress: 2-3 days - $12.99",
+      "returns": "Returns accepted within 30 days if product is in original condition."
+    }
+  },
+  {
+    "id": "product-007",
+    "title": "Pullover Fleece Hoodie",
+    "badge": "Bestseller",
+    "images": {
+      "main": "https://static.zara.net/assets/public/b76d/71b3/f97042b88e2c/92c8b509efb7/04090402506-e1/04090402506-e1.jpg?ts=1740133474414&w=750",
+      "thumbnails": [
+        "https://static.zara.net/assets/public/b76d/71b3/f97042b88e2c/92c8b509efb7/04090402506-e1/04090402506-e1.jpg?ts=1740133474414&w=750",
+        "https://static.zara.net/assets/public/15b9/54e3/10d54892ac10/aaaa4a8f908a/04090402506-p/04090402506-p.jpg?ts=1740143325397&w=1024",
+        "https://static.zara.net/assets/public/2ca2/2a6e/64b24e1484ab/1232afccdae3/04090402506-a1/04090402506-a1.jpg?ts=1740143323776&w=1126",
+        "https://static.zara.net/assets/public/da38/f76c/3adb4849862c/a60f77b6a3e0/04090402506-a5/04090402506-a5.jpg?ts=1740136169945&w=750"
+
+
+      ]
+    },
+    "price": {
+      "current": 82.50,
+      "original": 95.00
+    },
+    "description": "Our Pullover Fleece Hoodie offers warmth and softness for chilly days. Perfect for casual wear or layering under jackets.",
+    "meta": {
+      "category": "Casual",
+      "material": "85% Cotton, 15% Polyester",
+      "sku": "CAS-HD-FL-007"
+    },
+    "options": {
+      "colors": [
+        {
+          "name": "burgundy",
+          "hex": "#800020"
+        },
+        {
+          "name": "dark green",
+          "hex": "#013220"
+        }
+      ],
+      "sizes": ["S", "M", "L", "XL", "XXL"]
+    },
+    "quantity": {
+      "min": 1,
+      "max": 10
+    },
+    "tabs": {
+      "details": "Fabric: Soft fleece with brushed interior.\nFit: Regular fit pullover style.\nFeatures: Kangaroo pocket, ribbed cuffs and hem.\nCare: Machine wash cold, tumble dry low.",
+      "shipping": "Standard Shipping: 3-5 days - $5.99\nExpress Shipping: 2-3 days - $12.99\nFree shipping over $100.",
+      "returns": "30-day free returns on unworn, tag-attached items."
+    }
+  },
+  {
+    "id": "product-008",
+    "title": "Eco-Friendly Recycled Hoodie",
+    "badge": "Sustainable",
+    "images": {
+      "main": "https://static.zara.net/assets/public/fc55/b797/7f984819b26c/6fa99ff2d62b/01538421700-e1/01538421700-e1.jpg?ts=1741281773492&w=750",
+      "thumbnails": [
+        "https://static.zara.net/assets/public/fc55/b797/7f984819b26c/6fa99ff2d62b/01538421700-e1/01538421700-e1.jpg?ts=1741281773492&w=750",
+        "https://static.zara.net/assets/public/2491/127a/73b041bf8289/e4f3b6b35c2f/01538421700-p/01538421700-p.jpg?ts=1741353305612&w=1024",
+        "https://static.zara.net/assets/public/0734/b34a/bcd3425f9f15/3a937d12365e/01538421700-a1/01538421700-a1.jpg?ts=1743669336332&w=1126",
+        "https://static.zara.net/assets/public/e219/c9ed/39b4469db659/4262593ef74f/01538421700-a4/01538421700-a4.jpg?ts=1741602922539&w=750"
+      ]
+    },
+    "price": {
+      "current": 99.00,
+      "original": 110.00
+    },
+    "description": "Made from recycled materials, our Eco-Friendly Hoodie combines style and sustainability. Soft, breathable, and kind to the planet.",
+    "meta": {
+      "category": "Sustainable",
+      "material": "Recycled Cotton and Polyester",
+      "sku": "SUS-HD-REC-008"
+    },
+    "options": {
+      "colors": [
+        {
+          "name": "natural",
+          "hex": "#D3D3C9"
+        },
+        {
+          "name": "olive",
+          "hex": "#708238"
+        }
+      ],
+      "sizes": ["S", "M", "L", "XL"]
+    },
+    "quantity": {
+      "min": 1,
+      "max": 5
+    },
+    "tabs": {
+      "details": "Fabric: 60% recycled cotton, 40% recycled polyester.\nFit: Standard fit.\nFeatures: Drawstring hood, front kangaroo pocket.\nCare: Machine wash cold, hang dry recommended.",
+      "shipping": "Standard: 3-5 days - $5.99\nExpress: 2-3 days - $12.99\nFree shipping over $100.",
+      "returns": "Free returns within 30 days if in original condition."
+    }
+  }
+]

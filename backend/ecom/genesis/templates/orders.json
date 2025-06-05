@@ -1,0 +1,165 @@
+[
+  {
+    "email": "felix@gmail.com",
+    "phone": "87283728787382",
+    "first_name": "felix",
+    "last_name": "furtado",
+    "address": "Mangesi malsa building flat no 2 vijaynagar kajubag karwar",
+    "address2": "POST-CHENDIA IDOOR KARWAR",
+    "city": "Karwar",
+    "zip": "581301",
+    "country": "IN",
+    "status": "Pending",
+    "cart": [
+      {
+        "id": 1,
+        "title": "Printed Blue Hoodie",
+        "color": "black",
+        "size": "S",
+        "count": 3,
+        "image": "https://static.zara.net/assets/public/522e/22b3/cef9474b942a/c2cac04e3bbd/04087406400-e1/04087406400-e1.jpg?ts=1733819688051&w=750",
+        "price": 89.99
+      },
+      {
+        "id": 2,
+        "title": "Relaxed Fit Hoodie",
+        "color": "grey",
+        "size": "L",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/a0f7/1947/23114cd3a2b4/9c4a41c30b04/04087420700-e1/04087420700-e1.jpg?ts=1739457883923&w=750",
+        "price": 79.99
+      },
+      {
+        "id": 3,
+        "title": "Relaxed Fit Hoodie",
+        "color": "navy",
+        "size": "S",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/a0f7/1947/23114cd3a2b4/9c4a41c30b04/04087420700-e1/04087420700-e1.jpg?ts=1739457883923&w=750",
+        "price": 79.99
+      },
+      {
+        "id": 4,
+        "title": "Graphic Print",
+        "color": "white",
+        "size": "L",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/b9ad/7509/9ecf411e9998/01e79f32be15/04087430800-e1/04087430800-e1.jpg?ts=1738231168509&w=750",
+        "price": 95.0
+      },
+      {
+        "id": 5,
+        "title": "Graphic Print",
+        "color": "white",
+        "size": "XL",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/b9ad/7509/9ecf411e9998/01e79f32be15/04087430800-e1/04087430800-e1.jpg?ts=1738231168509&w=750",
+        "price": 95.0
+      },
+      {
+        "id": 6,
+        "title": "Pullover Fleece Hoodie",
+        "color": "burgundy",
+        "size": "M",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/b76d/71b3/f97042b88e2c/92c8b509efb7/04090402506-e1/04090402506-e1.jpg?ts=1740133474414&w=750",
+        "price": 82.5
+      },
+      {
+        "id": 7,
+        "title": "Pullover Fleece Hoodie",
+        "color": "dark green",
+        "size": "L",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/b76d/71b3/f97042b88e2c/92c8b509efb7/04090402506-e1/04090402506-e1.jpg?ts=1740133474414&w=750",
+        "price": 82.5
+      },
+      {
+        "id": 8,
+        "title": "Pullover Fleece Hoodie",
+        "color": "burgundy",
+        "size": "XL",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/b76d/71b3/f97042b88e2c/92c8b509efb7/04090402506-e1/04090402506-e1.jpg?ts=1740133474414&w=750",
+        "price": 82.5
+      },
+      {
+        "id": 9,
+        "title": "Pullover Fleece Hoodie",
+        "color": "burgundy",
+        "size": "S",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/b76d/71b3/f97042b88e2c/92c8b509efb7/04090402506-e1/04090402506-e1.jpg?ts=1740133474414&w=750",
+        "price": 82.5
+      },
+      {
+        "id": 10,
+        "title": "Eco-Friendly Recycled Hoodie",
+        "color": "natural",
+        "size": "L",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/fc55/b797/7f984819b26c/6fa99ff2d62b/01538421700-e1/01538421700-e1.jpg?ts=1741281773492&w=750",
+        "price": 99.0
+      },
+      {
+        "id": 11,
+        "title": "Eco-Friendly Recycled Hoodie",
+        "color": "olive",
+        "size": "XL",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/fc55/b797/7f984819b26c/6fa99ff2d62b/01538421700-e1/01538421700-e1.jpg?ts=1741281773492&w=750",
+        "price": 99.0
+      },
+      {
+        "id": 12,
+        "title": "Oversized White Hoodie",
+        "color": "white",
+        "size": "XL",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/bbb0/4df9/d9b44c5d8345/32796d90cdbc/01437412251-e1/01437412251-e1.jpg?ts=1739802881337&w=750",
+        "price": 85.0
+      },
+      {
+        "id": 13,
+        "title": "Oversized White Hoodie",
+        "color": "white",
+        "size": "L",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/bbb0/4df9/d9b44c5d8345/32796d90cdbc/01437412251-e1/01437412251-e1.jpg?ts=1739802881337&w=750",
+        "price": 85.0
+      },
+      {
+        "id": 14,
+        "title": "Oversized White Hoodie",
+        "color": "white",
+        "size": "XXL",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/bbb0/4df9/d9b44c5d8345/32796d90cdbc/01437412251-e1/01437412251-e1.jpg?ts=1739802881337&w=750",
+        "price": 85.0
+      }
+    ]
+  },
+  {
+    "email": "fel@gmail.com",
+    "phone": "87283728787382",
+    "first_name": "felix",
+    "last_name": "furtado",
+    "address": "Mangesi malsa building flat no 2 vijaynagar kajubag karwar",
+    "address2": "POST-CHENDIA IDOOR KARWAR",
+    "city": "Karwar",
+    "zip": "581301",
+    "country": "IN",
+    "cart": [
+      {
+        "id": 1,
+        "title": "Printed Blue Hoodie",
+        "color": "black",
+        "size": "S",
+        "count": 1,
+        "image": "https://static.zara.net/assets/public/522e/22b3/cef9474b942a/c2cac04e3bbd/04087406400-e1/04087406400-e1.jpg?ts=1733819688051&w=750",
+        "price": 89.99
+      }
+    ],
+    "status": "success"
+  }
+]

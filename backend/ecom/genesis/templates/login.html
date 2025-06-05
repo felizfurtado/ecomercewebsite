@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Sign Up | GENESIS</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #eaeaea;
+        font-family: "Kumbh Sans", sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .navbar {
+        height: 10vh;
+        width: 100%;
+        background: #eaeaea;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        position: relative;
+        z-index: 10;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+      }
+
+      .nav-left {
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      .nav-center {
+        font-family: "Poppins", sans-serif;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-weight: 400;
+        font-size: 2rem;
+        letter-spacing: 1px;
+      }
+
+      .nav-right {
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #000;
+      }
+
+      /* Mobile Menu Button */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #333;
+      }
+
+      .cart-icon-mobile {
+        display: none;
+        font-size: 1.3rem;
+        color: #333;
+        text-decoration: none;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .nav-left {
+          gap: 1.5rem;
+        }
+        .nav-right {
+          gap: 1.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-left {
+          display: none;
+        }
+        .nav-right {
+          display: none;
+        }
+        .nav-center {
+          position: static;
+          transform: none;
+          font-size: 1.5rem;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .cart-icon-mobile {
+          display: block;
+        }
+        .navbar {
+          justify-content: space-between;
+          padding: 0 20px;
+        }
+      }
+
+      /* Mobile Menu */
+      .mobile-menu {
+        position: fixed;
+        top: 10vh;
+        left: 0;
+        width: 100%;
+        background: #eaeaea;
+
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 9;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .mobile-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      /* Sign-up Section - Compact Layout */
+      .signup-section {
+        width: 100%;
+        height: 90vh;
+        display: flex;
+        background-color: #eaeaea;
+        position: relative;
+      }
+
+      .signup-image {
+        flex: 1;
+        background-image: url("https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+        background-size: cover;
+        background-position: center;
+        display: none;
+      }
+
+      .signup-container {
+        flex: 1;
+        max-width: 50%;
+        background: white;
+        padding: 80px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+      }
+
+      .signup-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .signup-title {
+        font-family: "Anton", sans-serif;
+        font-size: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+        color: #000;
+      }
+
+      .signup-subtitle {
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 0.9rem;
+        color: #777;
+        letter-spacing: 0.3px;
+      }
+
+      .signup-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .form-label {
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 600;
+        font-size: 0.8rem;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .form-input {
+        padding: 10px 12px;
+        border: 1px solid #e0e0e0;
+        border-radius: 3px;
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #000;
+        box-shadow: 0 0 0 1px #000;
+      }
+
+      /* .password-container {
+        position: relative;
+      }
+
+      .password-toggle {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #999;
+        font-size: 0.9rem;
+      } */
+
+      .signup-btn {
+        background: #000;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: background-color 0.2s;
+        margin-top: 10px;
+      }
+
+      .signup-btn:hover {
+        background-color: #222;
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+        color: #999;
+        font-size: 0.8rem;
+      }
+
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .divider-text {
+        padding: 0 10px;
+      }
+
+      .google-btn {
+        background: white;
+        color: #333;
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.2s;
+      }
+
+      .google-btn:hover {
+        border-color: #ccc;
+      }
+
+      .login-link {
+        text-align: center;
+        margin-top: 15px;
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 0.85rem;
+        color: #777;
+      }
+
+      .login-link a {
+        color: #000;
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: all 0.2s;
+      }
+
+      .login-link a:hover {
+        border-bottom-color: #000;
+      }
+
+      /* Responsive Adjustments */
+      @media (min-width: 992px) {
+        .signup-section {
+          padding: 0;
+        }
+        .signup-image {
+          display: block;
+        }
+        .signup-container {
+          border-left: 1px solid #f0f0f0;
+          height: 90vh;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .signup-container {
+          padding: 30px 25px;
+          max-width: 100%;
+          height: 90vh;
+        }
+
+        .signup-title {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .signup-container {
+          padding: 25px 20px;
+        }
+
+        .signup-title {
+          font-size: 2rem;
+        }
+
+        .form-input {
+          padding: 9px 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="nav-left">
+        <a href="z3.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+      </div>
+      <div class="nav-center">GENESIS</div>
+      <div class="nav-right">
+        <a href="#" class="nav-link">Sign Up</a>
+        <a href="#" class="nav-link">Cart (0)</a>
+      </div>
+<a href="#" class="cart-icon-mobile">
+  <i class="fas fa-shopping-bag"></i>
+        {% if user_name %}
+
+  <span class="cart-count">{{cart}}</span> <!-- example number -->
+  {% endif %}
+</a>
+    </nav>
+
+    <div class="mobile-menu">
+      <a href="{% url 'home' %}?token={{ request.session.user_token }}" class="nav-link">Home</a>
+      <a href="{% url 'about' %}?token={{ request.session.user_token }}" class="nav-link">About</a>
+      <a href="{% url 'shop' %}?token={{ request.session.user_token }}" class="nav-link">Shop</a>
+      <a href="{% url 'login' %}" class="nav-link">Sign In</a>
+    </div>
+
+    <section class="signup-section">
+      <div class="signup-image"></div>
+      <div class="signup-container">
+        <div class="signup-header">
+          <h1 class="signup-title">LOGIN</h1>
+          <p class="signup-subtitle">
+            Create your account to access exclusive content
+          </p>
+        </div>
+
+        <form class="signup-form" method="POST">
+          {% csrf_token %}
+
+
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" name="password" class="form-input" required />
+          </div>
+
+
+
+          <button type="submit" class="signup-btn">Continue</button>
+
+          <p class="login-link">
+            Already have an account? <a href="login.html">Sign in</a>
+          </p>
+        </form>
+      </div>
+    </section>
+
+    {% if alert_message %}
+<script>
+  alert("{{ alert_message }}");
+</script>
+{% endif %}
+
+    <style>
+      /* Footer Styles */
+      .hoodie-footer {
+        background-color: #eaeaea;
+        color: #000000;
+        padding: 60px 40px 40px;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        border-top: 1px solid #d3d3d3;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-logo {
+        font-family: "Arial Black", sans-serif;
+        font-size: 28px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        color: #000;
+      }
+
+      .brand-tagline {
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 300px;
+        opacity: 0.7;
+      }
+
+      .footer-section h3 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        color: #000;
+        text-decoration: none;
+        font-size: 14px;
+        transition: opacity 0.3s;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        opacity: 0.7;
+      }
+
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .newsletter-input {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #000;
+        padding: 10px 0;
+        margin-bottom: 15px;
+        font-size: 14px;
+        outline: none;
+      }
+
+      .newsletter-input::placeholder {
+        color: #000;
+        opacity: 0.5;
+      }
+
+      .subscribe-btn {
+        background: #000;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        width: fit-content;
+        transition: background 0.3s;
+      }
+
+      .subscribe-btn:hover {
+        background: #333;
+      }
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 30px;
+        border-top: 1px solid #d3d3d3;
+        font-size: 12px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .social-links a {
+        color: #000;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .legal-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .legal-links a {
+        color: #000;
+        text-decoration: none;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+
+        .legal-links {
+          order: -1;
+          display: none;
+        }
+
+        .social-links {
+          display: none;
+        }
+      }
+    </style>
+
+    <footer class="hoodie-footer">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="brand-logo" style="font-size: 50px">GENESIS</div>
+            <p class="brand-tagline">
+              Crafting premium hoodies for the urban explorer. Designed for
+              comfort, built for style.
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h3 style="font-size: 20px">SHOP</h3>
+            <ul class="footer-links">
+              <li><a href="#">New Arrivals</a></li>
+              <li><a href="#">Best Sellers</a></li>
+              <li><a href="#">Limited Editions</a></li>
+              <li><a href="#">Gift Cards</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <form class="newsletter-form">
+              <input
+                type="email"
+                class="newsletter-input"
+                placeholder="Your email address"
+              />
+              <button type="submit" class="subscribe-btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Shipping Policy</a>
+          </div>
+          <div class="copyright">© 2024 MILANA. All rights reserved.</div>
+          <div class="social-links">
+            <a href="#">IN.</a>
+            <a href="#">FB.</a>
+            <a href="#">YT.</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu toggle
+        const menuToggle = document.querySelector(".menu-toggle");
+        const mobileMenu = document.querySelector(".mobile-menu");
+
+        menuToggle.addEventListener("click", function () {
+          mobileMenu.classList.toggle("active");
+        });
+
+        // Password toggle functionality
+        const passwordToggle = document.querySelector(".password-toggle");
+        const passwordInput = document.getElementById("password");
+
+        if (passwordToggle) {
+          passwordToggle.addEventListener("click", function () {
+            const icon = this.querySelector("i");
+            if (passwordInput.type === "password") {
+              passwordInput.type = "text";
+              icon.classList.remove("fa-eye");
+              icon.classList.add("fa-eye-slash");
+            } else {
+              passwordInput.type = "password";
+              icon.classList.remove("fa-eye-slash");
+              icon.classList.add("fa-eye");
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <title>Admin Orders - GENESIS</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        font-family: "Kumbh Sans", sans-serif;
+        padding: 40px;
+      }
+
+      .admin-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        padding: 40px;
+      }
+
+      .admin-header {
+        font-family: "Anton", sans-serif;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #000;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .orders-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .orders-table th {
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 700;
+        text-align: left;
+        padding: 15px;
+        background: #f9f9f9;
+        border-bottom: 2px solid #eee;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+      }
+
+      .orders-table td {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 0.9rem;
+      }
+
+      .orders-table tr:hover {
+        background: #fafafa;
+      }
+
+      .order-id {
+        font-weight: 600;
+        color: #333;
+      }
+
+      .customer-name {
+        font-weight: 600;
+      }
+
+      .order-date {
+        color: #666;
+        font-size: 0.85rem;
+      }
+
+      .order-total {
+        font-weight: 700;
+      }
+
+      .order-status {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .status-pending {
+        background: #FFF3CD;
+        color: #856404;
+      }
+
+      .status-processing {
+        background: #CCE5FF;
+        color: #004085;
+      }
+
+      .status-shipped {
+        background: #D4EDDA;
+        color: #155724;
+      }
+
+      .status-delivered {
+        background: #D1ECF1;
+        color: #0C5460;
+      }
+
+      .status-cancelled {
+        background: #F8D7DA;
+        color: #721C24;
+      }
+
+      .view-btn {
+        background: #000;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 4px;
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 600;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .view-btn:hover {
+        background: #333;
+      }
+
+      .search-filter {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .search-box {
+        flex: 1;
+        max-width: 400px;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 0.9rem;
+      }
+
+      .filter-dropdown {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 0.9rem;
+        background: white;
+        margin-left: 10px;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+      }
+
+      .pagination-btn {
+        background: white;
+        border: 1px solid #ddd;
+        padding: 8px 15px;
+        margin: 0 5px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 600;
+      }
+
+      .pagination-btn.active {
+        background: #000;
+        color: white;
+        border-color: #000;
+      }
+
+      .pagination-btn:hover:not(.active) {
+        background: #f5f5f5;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 20px;
+        }
+
+        .admin-container {
+          padding: 20px;
+        }
+
+        .admin-header {
+          font-size: 1.8rem;
+        }
+
+        .search-filter {
+          flex-direction: column;
+        }
+
+        .search-box {
+          max-width: 100%;
+          margin-bottom: 15px;
+        }
+
+        .filter-dropdown {
+          margin-left: 0;
+          margin-top: 10px;
+        }
+
+        .orders-table {
+          display: block;
+          overflow-x: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-container">
+      <h1 class="admin-header">Order Management</h1>
+
+      <div class="search-filter">
+        <div class="search-box">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search orders..."
+          />
+        </div>
+        <div>
+          <select class="filter-dropdown">
+            <option>All Statuses</option>
+            <option>Pending</option>
+            <option>Processing</option>
+            <option>Shipped</option>
+            <option>Delivered</option>
+            <option>Cancelled</option>
+          </select>
+          <select class="filter-dropdown">
+            <option>Last 30 Days</option>
+            <option>Last 7 Days</option>
+            <option>Last 24 Hours</option>
+            <option>Custom Range</option>
+          </select>
+        </div>
+      </div>
+
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Items</th>
+            <th>Total</th>
+            <th>Phone</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% if total_orders %}
+
+          {% for i in total_orders %}
+
+          <tr>
+            <td class="order-id">{{forloop.counter}}</td>
+            <td class="order-id">{{i.email}}</td>
+            <td class="customer-name">{{i.first_name}}</td>
+
+            <td>{{items}}</td>
+            <td class="order-total">{{total|add:"90"}}</td>
+            <td><span class="order-status ">{{i.phone}}</span></td>
+
+
+          {% if i.status == 'success' %}
+            <td><span class="order-status status-delivered">{{i.status}}</span></td>
+            {% else %}
+            <td><span class="order-status status-pending">{{i.status}}</span></td>
+
+            {% endif %}
+
+
+            <form method="POST" action="{% url 'admin_view' %}">
+              {% csrf_token %}
+            <input type="hidden" name="email" value="{{i.email}}">
+
+            <td><button class="view-btn">View</button></td>
+
+            </form>
+          </tr>
+          <!-- <tr>
+            <td class="order-id">#GEN-1001</td>
+            <td class="customer-name">John Smith</td>
+
+            <td>3</td>
+            <td class="order-total">$290.00</td>
+            <td><span class="order-status status-shipped">Shipped</span></td>
+            <td><button class="view-btn">View</button></td>
+          </tr> -->
+
+          {% endfor %}
+          {% endif %}
+          
+        </tbody>
+      </table>
+
+      <!-- <div class="pagination">
+        <button class="pagination-btn">&laquo;</button>
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <button class="pagination-btn">&raquo;</button>
+      </div> -->
+    </div>
+
+    <script>
+      // This would be where you'd add functionality for:
+      // - Searching/filtering orders
+      // - Pagination
+      // - Viewing order details
+      // - Updating order statuses
+    </script>
+  </body>
+</html>

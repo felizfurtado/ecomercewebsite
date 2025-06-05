@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GENESIS | Product</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      :root {
+        --black: #000000;
+        --dark-gray: #333333;
+        --medium-gray: #555555;
+        --light-gray: #eaeaea;
+        --white: #ffffff;
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #eaeaea;
+        font-family: "Kumbh Sans", sans-serif;
+        color: var(--dark-gray);
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      .navbar {
+        height: 10vh;
+        width: 100%;
+        background: #eaeaea;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .nav-left,
+      .nav-right {
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      .nav-center {
+        font-family: "Poppins", sans-serif;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-weight: 400;
+        font-size: 2rem;
+        letter-spacing: 1px;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #000;
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #333;
+      }
+
+      .cart-icon-mobile {
+        display: none;
+        font-size: 1.3rem;
+        color: #333;
+        text-decoration: none;
+      }
+
+      /* Mobile Menu */
+      .mobile-menu {
+        position: fixed;
+        top: 10vh;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 9;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .mobile-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      /* Product Page */
+      .product-container {
+        padding: 80px 5% 0;
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        gap: 60px;
+      }
+
+      /* Product Gallery */
+      .product-gallery {
+        flex: 1;
+        display: flex;
+        gap: 20px;
+      }
+
+      .thumbnail-container {
+        width: 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .thumbnail {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        cursor: pointer;
+        border: 1px solid var(--light-gray);
+        transition: var(--transition);
+      }
+
+      .thumbnail:hover {
+        opacity: 0.8;
+      }
+
+      .thumbnail.active {
+        border-color: var(--black);
+      }
+
+      .main-image-container {
+        flex: 1;
+        position: relative;
+      }
+
+      .main-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: var(--black);
+        color: var(--white);
+        padding: 5px 10px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        z-index: 2;
+      }
+
+      /* Product Details */
+      .product-details {
+        flex: 1;
+        padding-top: 30px;
+      }
+
+      .product-title {
+        font-family: "Anton", sans-serif;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        line-height: 1.2;
+      }
+
+      .product-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .current-price {
+        color: var(--black);
+      }
+
+      .original-price {
+        color: var(--medium-gray);
+        text-decoration: line-through;
+        font-size: 1.2rem;
+      }
+
+      .product-description {
+        margin-bottom: 30px;
+        color: var(--medium-gray);
+        line-height: 1.7;
+      }
+
+      .product-meta {
+        margin-bottom: 30px;
+        font-size: 0.9rem;
+      }
+
+      .meta-item {
+        display: flex;
+        margin-bottom: 10px;
+      }
+
+      .meta-label {
+        font-weight: 600;
+        min-width: 100px;
+      }
+
+      .meta-value {
+        color: var(--medium-gray);
+      }
+
+      /* Color Selection */
+      .color-selector {
+        margin-bottom: 30px;
+      }
+
+      .selector-title {
+        font-weight: 600;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.9rem;
+      }
+
+      .color-options {
+        display: flex;
+        gap: 10px;
+      }
+
+      .color-option {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 1px solid var(--light-gray);
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 4px;
+      }
+
+      .color-option input {
+        display: none; /* hide the radio button itself */
+      }
+
+      .color-option::after {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        border-radius: 50%;
+        border: 1px solid transparent; /* default no border */
+      }
+
+      /* Show black border when the radio inside label is checked */
+      .color-option:has(input:checked)::after {
+        border-color: var(--black);
+      }
+
+      /* Size Selection */
+      .size-selector {
+        margin-bottom: 30px;
+      }
+
+      .size-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .size-option {
+        min-width: 50px;
+        padding: 10px;
+        border: 1px solid var(--light-gray);
+        text-align: center;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .size-option:hover {
+        border-color: var(--black);
+      }
+
+      .size-option.selected {
+        background: var(--black);
+        color: var(--white);
+      }
+
+      /* Quantity Selector */
+      .quantity-selector {
+        margin-bottom: 30px;
+      }
+
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .quantity-btn {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: 1px solid var(--light-gray);
+        cursor: pointer;
+        font-size: 1.2rem;
+      }
+
+      .quantity-input {
+        width: 60px;
+        height: 40px;
+        text-align: center;
+        border: 1px solid var(--light-gray);
+      }
+
+      /* Action Buttons */
+      .action-buttons {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 40px;
+      }
+
+      .add-to-cart,
+      .wishlist-btn {
+        padding: 15px 30px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .add-to-cart {
+        background: var(--black);
+        color: var(--white);
+        border: none;
+        flex: 2;
+      }
+
+      .add-to-cart:hover {
+        opacity: 0.9;
+      }
+
+      .wishlist-btn {
+        background: none;
+        border: 1px solid var(--black);
+        flex: 1;
+      }
+
+      .wishlist-btn:hover {
+        background: var(--light-gray);
+      }
+
+      /* Product Tabs */
+      .product-tabs {
+        margin-top: 60px;
+        border-bottom: 1px solid var(--light-gray);
+      }
+
+      .tab-headers {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 20px;
+      }
+
+      .tab-header {
+        padding-bottom: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .tab-header.active {
+        color: var(--black);
+      }
+
+      .tab-header.active::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--black);
+      }
+
+      .tab-content {
+        display: none;
+        padding: 20px 0 40px;
+        color: var(--medium-gray);
+        line-height: 1.7;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .nav-left,
+        .nav-right {
+          gap: 1.5rem;
+        }
+
+        .product-container {
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .product-gallery {
+          flex-direction: column-reverse;
+        }
+
+        .thumbnail-container {
+          width: 100%;
+          flex-direction: row;
+          order: 1;
+          margin-top: 15px;
+        }
+
+        .thumbnail {
+          width: 80px;
+          height: 80px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-left,
+        .nav-right {
+          display: none;
+        }
+        .nav-center {
+          position: static;
+          transform: none;
+          font-size: 1.5rem;
+        }
+        .menu-toggle,
+        .cart-icon-mobile {
+          display: block;
+        }
+        .navbar {
+          justify-content: space-between;
+          padding: 0 20px;
+        }
+
+        .product-title {
+          font-size: 2rem;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+        }
+
+        .add-to-cart,
+        .wishlist-btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="nav-left">
+        <a
+          href="{% url 'home' %}?token={{ request.session.user_token }}"
+          class="nav-link"
+          >Home</a
+        >
+        <a
+          href="{% url 'about' %}?token={{ request.session.user_token }}"
+          class="nav-link"
+          >About</a
+        >
+        <a
+          href="{% url 'shop' %}?token={{ request.session.user_token }}"
+          class="nav-link"
+          >Shop</a
+        >
+      </div>
+      <div class="nav-center">GENESIS</div>
+      <div class="nav-right">
+        <a href="{% url 'login' %}" class="nav-link">Sign In</a>
+
+        <style>
+          .user-name {
+            font-family: "Kumbh Sans", sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #333;
+            text-decoration: none;
+            text-transform: capitalize;
+          }
+        </style>
+
+        {% if user_name %}
+        <a href="{% url 'cart' %}?token={{ request.session.user_token }}" class="nav-link log">Cart ({{cart}})</a>
+
+        <a href="#" class="nav-link user-name"> {{ user_name }} </a>
+        {% endif %}
+      </div>
+
+
+            <style>
+
+
+.cart-icon-mobile {
+  position: relative;
+}
+
+.cart-count {
+
+  position: absolute;
+  top: -3px;
+  right: -10px;
+  background-color: red;
+
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  line-height: 1;
+  pointer-events: none; /* so clicking the badge doesn’t interfere */
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  user-select: none;
+  min-width: 18px;
+  text-align: center;
+}
+      </style>
+<a href="#" class="cart-icon-mobile">
+  <i class="fas fa-shopping-bag"></i>
+        {% if user_name %}
+
+  <span class="cart-count">{{cart}}</span> <!-- example number -->
+  {% endif %}
+</a>
+    </nav>
+
+    <div class="mobile-menu">
+      <a href="{% url 'home' %}?token={{ request.session.user_token }}" class="nav-link">Home</a>
+      <a href="{% url 'about' %}?token={{ request.session.user_token }}" class="nav-link">About</a>
+      <a href="{% url 'shop' %}?token={{ request.session.user_token }}" class="nav-link">Shop</a>
+      <a href="{% url 'login' %}" class="nav-link">Sign In</a>
+    </div>
+
+    <!-- Product Section -->
+    <div class="product-container">
+      <!-- Product Gallery -->
+
+      {% if product %}
+
+      <div class="product-gallery">
+        <div class="thumbnail-container">
+          {% for image in product.images.thumbnails %}
+
+          <img
+            src="{{image}}"
+            alt="Printed Blue Hoodie - Front"
+            class="thumbnail {% if forloop.first %}active{% endif %}"
+          />
+          {% endfor %}
+          <!-- <img
+            src="https://static.zara.net/assets/public/edcf/7af0/e0394fa1bed9/cd15a9a5f16b/04087406400-p/04087406400-p.jpg?ts=1733918891708&w=1024"
+            alt="Printed Blue Hoodie - Side"
+            class="thumbnail"
+          />
+          <img
+            src="https://static.zara.net/assets/public/7523/d7ce/25a94bb6b55c/bb2a1fe6e59d/04087406400-a1/04087406400-a1.jpg?ts=1733918892582&w=1126"
+            alt="Printed Blue Hoodie - Back"
+            class="thumbnail"
+          />
+          <img
+            src="https://static.zara.net/assets/public/9e21/c2f4/8b6b4c748b71/f83405642764/04087406400-a2/04087406400-a2.jpg?ts=1733918891978&w=750"
+            alt="Printed Blue Hoodie - Detail"
+            class="thumbnail"
+          /> -->
+        </div>
+        <div class="main-image-container">
+          <span class="product-badge">New</span>
+          <img
+            src="{{ product.images.main }}"
+            alt="Printed Blue Hoodie"
+            class="main-image"
+          />
+        </div>
+      </div>
+
+      <!-- Product Details -->
+      <div class="product-details">
+        <h1 class="product-title">{{product.title}}</h1>
+        <div class="product-price">
+          <span class="current-price">${{ product.price.current }}</span>
+          <span class="original-price">${{ product.price.original }}</span>
+        </div>
+
+        <p class="product-description">{{ product.description }}</p>
+
+        <div class="product-meta">
+          <div class="meta-item">
+            <span class="meta-label">Category:</span>
+            <span class="meta-value">{{ product.meta.category }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Material:</span>
+            <span class="meta-value">{{ product.meta.material }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">SKU:</span>
+            <span class="meta-value">{{ product.meta.sku }}</span>
+          </div>
+        </div>
+
+        <form method="POST">
+          {% csrf_token %}
+
+          <!-- Color Selection -->
+
+          <div class="color-selector">
+            <h3 class="selector-title">Color</h3>
+            <div class="color-options">
+              {% for color in product.options.colors %}
+              <label class="color-option" style="background: {{color.hex}};">
+                <input
+                  type="radio"
+                  name="selectedcolor"
+                  value="{{ color.name }}"
+                  {%
+                  if
+                  loop.first
+                  %}checked{%
+                  endif
+                  %}
+                />
+              </label>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="size-selector">
+            <h3 class="selector-title">Size</h3>
+            <div class="size-options">
+              {% for size in product.options.sizes %}
+              <label class="size-option {% if loop.first %}selected{% endif %}">
+                <input
+                  type="radio"
+                  name="selectedsize"
+                  value="{{ size }}"
+                  {%
+                  if
+                  loop.first
+                  %}checked{%
+                  endif
+                  %}
+                  hidden
+                />
+                {{ size }}
+              </label>
+              {% endfor %}
+            </div>
+          </div>
+
+          {% if user_name %}
+
+          <div class="action-buttons">
+
+            <input type="hidden" name="ti" value="{{product.title}}" />
+            <input type="hidden" name="image" value="{{product.images.main}}" />
+            <input type="hidden" name="price" value="{{ product.price.current }}" />
+            <button class="add-to-cart" type="submit">Add to Cart</button>
+
+            <button class="wishlist-btn">
+              <i class="far fa-heart"></i> Wishlist
+            </button>
+          </div>
+          {% endif %}
+
+        </form>
+
+        <style>
+          /* Notification Styles */
+          #cart-notification {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            background-color: #eaeaea;
+            color: black;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            text-transform: capitalize;
+            font-size: 14px;
+            letter-spacing: 2px;
+            z-index: 9999 !important;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+          }
+
+          /* Visible State */
+          #cart-notification.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+          }
+        </style>
+
+        {% if success and " added in the cart" in success %}
+        <div id="cart-notification">{{ success }}</div>
+        {% endif %}
+
+
+        <script>
+          const notify = document.getElementById("cart-notification");
+          notify.classList.add("show");
+          setTimeout(() => {
+            notify.classList.remove("show");
+          }, 3000); // Hides after 3 seconds
+        </script>
+
+        {% if alert  %}
+
+        <script>
+          alert("{{ alert }}");
+        </script>
+
+        {% endif %}
+
+        <!-- Quantity Selector -->
+
+        <!-- Action Buttons -->
+
+        <!-- Product Tabs -->
+        <div class="product-tabs">
+          <div class="tab-headers">
+            <div class="tab-header active" data-tab="details">Details</div>
+            <div class="tab-header" data-tab="shipping">Shipping</div>
+            <div class="tab-header" data-tab="returns">Returns</div>
+          </div>
+
+          <div class="tab-content active" id="details">
+            <p>{{ product.tabs.details|linebreaksbr }}</p>
+          </div>
+          <div class="tab-content" id="shipping">
+            <p>{{ product.tabs.shipping|linebreaksbr }}</p>
+          </div>
+          <div class="tab-content" id="returns">
+            <p>{{ product.tabs.returns|linebreaksbr }}</p>
+          </div>
+        </div>
+      </div>
+
+      {% endif %}
+    </div>
+
+    <style>
+      /* Footer Styles */
+      .hoodie-footer {
+        background-color: #eaeaea;
+        color: #000000;
+        padding: 60px 40px 40px;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        border-top: 1px solid #d3d3d3;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-logo {
+        font-family: "Arial Black", sans-serif;
+        font-size: 28px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        color: #000;
+      }
+
+      .brand-tagline {
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 300px;
+        opacity: 0.7;
+      }
+
+      .footer-section h3 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        color: #000;
+        text-decoration: none;
+        font-size: 14px;
+        transition: opacity 0.3s;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        opacity: 0.7;
+      }
+
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .newsletter-input {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #000;
+        padding: 10px 0;
+        margin-bottom: 15px;
+        font-size: 14px;
+        outline: none;
+      }
+
+      .newsletter-input::placeholder {
+        color: #000;
+        opacity: 0.5;
+      }
+
+      .subscribe-btn {
+        background: #000;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        width: fit-content;
+        transition: background 0.3s;
+      }
+
+      .subscribe-btn:hover {
+        background: #333;
+      }
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 30px;
+        border-top: 1px solid #d3d3d3;
+        font-size: 12px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .social-links a {
+        color: #000;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .legal-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .legal-links a {
+        color: #000;
+        text-decoration: none;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+
+        .legal-links {
+          order: -1;
+          display: none;
+        }
+
+        .social-links {
+          display: none;
+        }
+      }
+    </style>
+
+    <footer class="hoodie-footer">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="brand-logo" style="font-size: 50px">GENESIS</div>
+            <p class="brand-tagline">
+              Crafting premium hoodies for the urban explorer. Designed for
+              comfort, built for style.
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h3 style="font-size: 20px">SHOP</h3>
+            <ul class="footer-links">
+              <li><a href="#">New Arrivals</a></li>
+              <li><a href="#">Best Sellers</a></li>
+              <li><a href="#">Limited Editions</a></li>
+              <li><a href="#">Gift Cards</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <form class="newsletter-form">
+              <input
+                type="email"
+                class="newsletter-input"
+                placeholder="Your email address"
+              />
+              <button type="submit" class="subscribe-btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Shipping Policy</a>
+          </div>
+          <div class="copyright">© 2024 MILANA. All rights reserved.</div>
+          <div class="social-links">
+            <a href="#">IN.</a>
+            <a href="#">FB.</a>
+            <a href="#">YT.</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu toggle
+        const menuToggle = document.querySelector(".menu-toggle");
+        const mobileMenu = document.querySelector(".mobile-menu");
+
+        if (menuToggle && mobileMenu) {
+          menuToggle.addEventListener("click", function () {
+            mobileMenu.classList.toggle("active");
+          });
+        }
+
+        // Thumbnail image selection
+        const thumbnails = document.querySelectorAll(".thumbnail");
+        const mainImage = document.querySelector(".main-image");
+
+        thumbnails.forEach((thumb) => {
+          thumb.addEventListener("click", function () {
+            thumbnails.forEach((t) => t.classList.remove("active"));
+            this.classList.add("active");
+            mainImage.src = this.src;
+            mainImage.alt = this.alt;
+          });
+        });
+
+        // Color selection
+        const colorOptions = document.querySelectorAll(".color-option");
+
+        colorOptions.forEach((option) => {
+          option.addEventListener("click", function () {
+            colorOptions.forEach((opt) => opt.classList.remove("selected"));
+            this.classList.add("selected");
+          });
+        });
+
+        // Size selection
+        const sizeOptions = document.querySelectorAll(".size-option");
+
+        sizeOptions.forEach((option) => {
+          option.addEventListener("click", function () {
+            sizeOptions.forEach((opt) => opt.classList.remove("selected"));
+            this.classList.add("selected");
+          });
+        });
+
+        // Quantity control
+        const minusBtn = document.querySelector(".quantity-btn.minus");
+        const plusBtn = document.querySelector(".quantity-btn.plus");
+        const quantityInput = document.querySelector(".quantity-input");
+
+        minusBtn.addEventListener("click", function () {
+          let value = parseInt(quantityInput.value);
+          if (value > 1) {
+            quantityInput.value = value - 1;
+          }
+        });
+
+        plusBtn.addEventListener("click", function () {
+          let value = parseInt(quantityInput.value);
+          if (value < 10) {
+            quantityInput.value = value + 1;
+          }
+        });
+
+        // Tab switching
+        const tabHeaders = document.querySelectorAll(".tab-header");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        tabHeaders.forEach((header) => {
+          header.addEventListener("click", function () {
+            const tabId = this.dataset.tab;
+
+            tabHeaders.forEach((h) => h.classList.remove("active"));
+            tabContents.forEach((c) => c.classList.remove("active"));
+
+            this.classList.add("active");
+            document.getElementById(tabId).classList.add("active");
+          });
+        });
+
+        // Wishlist functionality
+        const wishlistBtn = document.querySelector(".wishlist-btn");
+
+        wishlistBtn.addEventListener("click", function () {
+          const icon = this.querySelector("i");
+          icon.classList.toggle("far");
+          icon.classList.toggle("fas");
+
+          if (icon.classList.contains("fas")) {
+            alert("Added to wishlist!");
+          } else {
+            alert("Removed from wishlist!");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Your Cart - GENESIS</title>
+    <style>
+      /* Reused styles from main page */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #eaeaea;
+        font-family: "Kumbh Sans", sans-serif;
+      }
+
+      .navbar {
+        height: 10vh;
+        width: 100%;
+        background: #eaeaea;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        position: relative;
+        z-index: 10;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+      }
+
+      .nav-left {
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      .nav-center {
+        font-family: "Poppins", sans-serif;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-weight: 400;
+        font-size: 2rem;
+        letter-spacing: 1px;
+      }
+
+      .nav-right {
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #000;
+      }
+
+      /* Cart page specific styles */
+      .cart-container {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 0 30px;
+      }
+
+      .cart-header {
+        font-family: "Anton", sans-serif;
+        font-size: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 40px;
+        color: #000;
+      }
+
+      .cart-items {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .cart-item {
+        display: flex;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .item-image {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .item-details {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .item-info h3 {
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+
+      .item-attributes {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 10px;
+      }
+
+      .attribute {
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      .item-price {
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #000;
+      }
+
+      .item-controls {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .quantity-btn {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ddd;
+        background: #f5f5f5;
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+      }
+
+      .quantity {
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 1rem;
+        min-width: 30px;
+        text-align: center;
+      }
+
+      .remove-btn {
+        background: none;
+        border: none;
+        color: #999;
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 0.9rem;
+        cursor: pointer;
+        margin-left: auto;
+      }
+
+      .remove-btn:hover {
+        color: #ff0000;
+      }
+
+      .cart-summary {
+        margin-top: 50px;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        font-family: "Kumbh Sans", sans-serif;
+      }
+
+      .summary-total {
+        font-weight: 700;
+        font-size: 1.2rem;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+        margin-top: 10px;
+      }
+
+      .checkout-btn {
+        width: 100%;
+        background: #000;
+        color: white;
+        border: none;
+        padding: 15px;
+        font-family: "Kumbh Sans", sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background 0.3s;
+      }
+
+      .checkout-btn:hover {
+        background: #333;
+      }
+
+      .empty-cart {
+        text-align: center;
+        padding: 50px 0;
+        font-family: "Kumbh Sans", sans-serif;
+      }
+
+      .empty-cart h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+
+      .continue-shopping {
+        display: inline-block;
+        background: #000;
+        color: white;
+        padding: 12px 30px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        margin-top: 20px;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .cart-item {
+          flex-direction: column;
+        }
+
+        .item-image {
+          width: 100%;
+          height: auto;
+          max-height: 300px;
+        }
+
+        .item-details {
+          padding: 15px;
+        }
+
+        .item-controls {
+          margin-top: 15px;
+        }
+
+        .cart-header {
+          font-size: 2rem;
+          text-align: center;
+        }
+      }
+
+ 
+
+      /* Mobile menu styles */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #333;
+      }
+
+      .cart-icon-mobile {
+        display: none;
+        font-size: 1.3rem;
+        color: #333;
+        text-decoration: none;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 10vh;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 9;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .mobile-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      @media (max-width: 768px) {
+        .nav-left {
+          display: none;
+        }
+        .nav-right {
+          display: none;
+        }
+        .nav-center {
+          position: static;
+          transform: none;
+          font-size: 1.5rem;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .cart-icon-mobile {
+          display: block;
+        }
+        .navbar {
+          justify-content: space-between;
+          padding: 0 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="nav-left">
+        <a
+          href="{% url 'home' %}?token={{ request.session.user_token }}"
+          class="nav-link"
+          >Home</a
+        >
+        <a
+          href="{% url 'about' %}?token={{ request.session.user_token }}"
+          class="nav-link"
+          >About</a
+        >
+        <a
+          href="{% url 'shop' %}?token={{ request.session.user_token }}"
+          class="nav-link"
+          >Shop</a
+        >
+      </div>
+      <div class="nav-center">GENESIS</div>
+      <div class="nav-right">
+        <a href="{% url 'login' %}" class="nav-link">Sign In</a>
+
+        {% if user_name %}
+        <a
+          href="{% url 'cart' %}?token={{ request.session.user_token }}"
+          class="nav-link"
+          >Cart ({{cart}})</a
+        >
+
+        <a href="#" class="nav-link user-name"> {{user_name}} </a>
+        {% endif %}
+      </div>
+<a href="#" class="cart-icon-mobile">
+  <i class="fas fa-shopping-bag"></i>
+        {% if user_name %}
+
+  <span class="cart-count">{{cart}}</span> <!-- example number -->
+  {% endif %}
+</a>
+    </nav>
+
+    <div class="mobile-menu">
+      <a href="{% url 'home' %}?token={{ request.session.user_token }}" class="nav-link">Home</a>
+      <a href="{% url 'about' %}?token={{ request.session.user_token }}" class="nav-link">About</a>
+      <a href="{% url 'shop' %}?token={{ request.session.user_token }}" class="nav-link">Shop</a>
+      <a href="{% url 'login' %}" class="nav-link">Sign In</a>
+    </div>
+
+    <div class="cart-container">
+      <h1 class="cart-header">Your Cart</h1>
+
+        <div class="cart-items">
+          {% if user_name %} {% for i in cart_prod %}
+        <form method="POST">
+        {% csrf_token %}
+          <div class="cart-item">
+            <img src="{{i.image}}" alt="CMXII Hoodie" class="item-image" />
+            <div class="item-details">
+              <div class="item-info">
+                <h3>{{i.title}}</h3>
+                <div class="item-attributes">
+                  <span class="attribute">Color: {{i.color}}</span>
+                  <span class="attribute">Size: {{i.size}}</span>
+                </div>
+                <div class="item-price">${{i.price}}</div>
+              </div>
+              <input type="hidden" name="title" value="{{ i.title }}" />
+              <input type="hidden" name="selectedcolor" value="{{ i.color }}" />
+              <input type="hidden" name="selectedsize" value="{{ i.size }}" />
+              <input type="hidden" name="price" value="{{ i.price }}" />
+         
+
+
+              <div class="item-controls">
+                <div class="quantity-control">
+                  <input type="hidden" name="item_id" value="{{ i.id }}">
+                  <button
+                    type="submit"
+                    class="quantity-btn"
+                    value="dec"
+                    name="dec"
+                  >
+                    -
+                  </button>
+                  <span class="quantity"
+                    >{% if i.count > 0 %} {{ i.count }} {% else %} 1 {% endif%}</span
+                  >
+                  <button
+                    type="submit"
+                    class="quantity-btn plus"
+                    value="inc"
+                    name="inc"
+                  >
+                    +
+                  </button>
+                </div>
+                <button type="submit" class="remove-btn" name="remove">
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+           </form>
+
+          {% endfor %} {% endif %}
+
+          <!-- Cart Item 2 -->
+          <!-- <div class="cart-item">
+          <img src="https://static.zara.net/assets/public/bbb0/4df9/d9b44c5d8345/32796d90cdbc/01437412251-e1/01437412251-e1.jpg?ts=1739802881337&w=750" 
+               alt="Relaxed White Hoodie" 
+               class="item-image">
+          <div class="item-details">
+            <div class="item-info">
+              <h3>Relaxed White Hoodie</h3>
+              <div class="item-attributes">
+                <span class="attribute">Color: White</span>
+                <span class="attribute">Size: L</span>
+              </div>
+              <div class="item-price">$59.99</div>
+            </div>
+            <div class="item-controls">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <span class="quantity">1</span>
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="remove-btn">Remove</button>
+            </div>
+          </div>
+        </div> -->
+        </div>
+     
+
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+
+          <span>${{total|floatformat:2}}</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span>90</span>
+        </div>
+        <div class="summary-row summary-total">
+          <span>Total</span>
+          <span>${{total|add:90|floatformat:2}}</span>
+        </div>
+        <a href="{% url 'checkout' %}?token={{ request.session.user_token }}"><button class="checkout-btn" >Proceed to Checkout</button></a>
+      </div>
+
+      <!-- Empty cart state (hidden by default) -->
+      <!-- <div class="empty-cart">
+        <h2>Your cart is empty</h2>
+        <p>Continue browsing our collection</p>
+        <a href="shop.html" class="continue-shopping">Continue Shopping</a>
+      </div> -->
+    </div>
+
+     <style>
+      /* Footer Styles */
+      .hoodie-footer {
+        background-color: #eaeaea;
+        color: #000000;
+        padding: 60px 40px 40px;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        border-top: 1px solid #d3d3d3;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-logo {
+        font-family: "Arial Black", sans-serif;
+        font-size: 28px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        color: #000;
+      }
+
+      .brand-tagline {
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 300px;
+        opacity: 0.7;
+      }
+
+      .footer-section h3 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        color: #000;
+        text-decoration: none;
+        font-size: 14px;
+        transition: opacity 0.3s;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        opacity: 0.7;
+      }
+
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .newsletter-input {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #000;
+        padding: 10px 0;
+        margin-bottom: 15px;
+        font-size: 14px;
+        outline: none;
+      }
+
+      .newsletter-input::placeholder {
+        color: #000;
+        opacity: 0.5;
+      }
+
+      .subscribe-btn {
+        background: #000;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        width: fit-content;
+        transition: background 0.3s;
+      }
+
+      .subscribe-btn:hover {
+        background: #333;
+      }
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 30px;
+        border-top: 1px solid #d3d3d3;
+        font-size: 12px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .social-links a {
+        color: #000;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .legal-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .legal-links a {
+        color: #000;
+        text-decoration: none;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+
+        .legal-links {
+          order: -1;
+          display: none;
+        }
+
+        .social-links {
+          display: none;
+        }
+      }
+    </style>
+
+    <footer class="hoodie-footer">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="brand-logo" style="font-size: 50px">GENESIS</div>
+            <p class="brand-tagline">
+              Crafting premium hoodies for the urban explorer. Designed for
+              comfort, built for style.
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h3 style="font-size: 20px">SHOP</h3>
+            <ul class="footer-links">
+              <li><a href="#">New Arrivals</a></li>
+              <li><a href="#">Best Sellers</a></li>
+              <li><a href="#">Limited Editions</a></li>
+              <li><a href="#">Gift Cards</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <form class="newsletter-form">
+              <input
+                type="email"
+                class="newsletter-input"
+                placeholder="Your email address"
+              />
+              <button type="submit" class="subscribe-btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Shipping Policy</a>
+          </div>
+          <div class="copyright">© 2024 MILANA. All rights reserved.</div>
+          <div class="social-links">
+            <a href="#">IN.</a>
+            <a href="#">FB.</a>
+            <a href="#">YT.</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+{% if error_message %}
+    <script>
+      
+      alert("{{ error_message }}")
+    </script>
+    {% endif %}
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const mobileMenu = document.querySelector(".mobile-menu");
+
+        menuToggle.addEventListener("click", function () {
+          mobileMenu.classList.toggle("active");
+        });
+
+        // Quantity controls functionality
+        document.querySelectorAll(".quantity-btn").forEach((button) => {
+          button.addEventListener("click", function () {
+            const isPlus = this.classList.contains("plus");
+            const quantityElement =
+              this.parentElement.querySelector(".quantity");
+            let quantity = parseInt(quantityElement.textContent);
+
+            if (isPlus) {
+              quantity++;
+            } else {
+              quantity = quantity > 1 ? quantity - 1 : 1;
+            }
+
+            quantityElement.textContent = quantity;
+            // Here you would update the cart total as well
+          });
+        });
+
+        // Remove item functionality
+
+      });
+    </script>
+  </body>
+</html>

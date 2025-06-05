@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE | Premium Sneakers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Header/Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #F5F5F0;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #F5F5F0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #D4B996;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-icons i {
+            color: #F5F5F0;
+            font-size: 16px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav-icons i:hover {
+            color: #D4B996;
+        }
+
+        .search-bar {
+            position: relative;
+            width: 0;
+            overflow: hidden;
+            transition: width 0.3s ease;
+        }
+
+        .search-bar.active {
+            width: 200px;
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(245, 245, 240, 0.5);
+            padding: 5px 0;
+            color: #F5F5F0;
+            width: 100%;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-bar input::placeholder {
+            color: rgba(245, 245, 240, 0.7);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(135deg, #6F4E37 0%, #B7A69A 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pedestal {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(215, 215, 210, 0.2) 0%, rgba(215, 215, 210, 0.05) 70%);
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .sneaker {
+            width: 700px;
+            height: auto;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+            rotate: 10deg;
+        }
+
+        .hero-text {
+            position: absolute;
+            font-size: 120px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: rgba(245, 245, 240, 0.15);
+            letter-spacing: 8px;
+            z-index: 1;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .scroll-cta {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #F5F5F0;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .scroll-cta::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 40px;
+            background-color: #F5F5F0;
+            animation: scrollPulse 2s infinite;
+        }
+
+        @keyframes scrollPulse {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">LUXE</a>
+        <nav class="nav-links">
+            <a href="#">Men</a>
+            <a href="#">Women</a>
+            <a href="#">Kids</a>
+            <a href="#">New In</a>
+            <a href="#">Company</a>
+        </nav>
+        <div class="nav-icons">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+            </div>
+            <i class="fas fa-search" id="search-toggle"></i>
+            <i class="far fa-heart"></i>
+            <i class="fas fa-shopping-bag"></i>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="pedestal">
+            <img src="https://png.pngtree.com/png-vector/20231230/ourmid/pngtree-dropshipping-men-hole-sole-jogging-shoes-png-image_11389148.png" alt="Premium Leather Sneaker" class="sneaker">
+            <h1 class="hero-text">Walk In Style</h1>
+        </div>
+        <div class="scroll-cta">Scroll</div>
+    </section>
+
+    <script>
+        // Toggle search bar
+        const searchToggle = document.getElementById('search-toggle');
+        const searchBar = document.querySelector('.search-bar');
+
+        searchToggle.addEventListener('click', () => {
+            searchBar.classList.toggle('active');
+            if (searchBar.classList.contains('active')) {
+                searchBar.querySelector('input').focus();
+            }
+        });
+    </script>
+</body>
+</html>
