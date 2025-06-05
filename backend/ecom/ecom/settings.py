@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecom',           
-        'USER': 'root',     
-        'PASSWORD': '@Leomessi10',
+        'USER': '',     
+        'PASSWORD': '',
         'HOST': 'localhost',          
         'PORT': '3306',               
     }
